@@ -1,0 +1,16 @@
+# Ignora TODOS os vídeos baixados
+downloads/
+*.mp4
+*.webm
+*.mkv
+*.avi
+*.mov
+
+# Arquivos grandes
+*.zip
+*.rar
+*.exe
+
+# Python
+__pycache__/
+*.pyc
