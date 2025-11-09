@@ -1,46 +1,63 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>PineLoad</title>
-    <style>
+  <meta charset="UTF-8">
+  <title>PineLoad</title>
+  <style>
     body {
-        font-family: sans-serif; 
-        width:300px; 
-        padding:15px; 
-        margin:0;
+      font-family: 'Segoe UI', sans-serif;
+      width: 320px;
+      padding: 16px;
+      margin: 0;
+      background: #f9f9f9;
     }
-
     h2 {
-        margin:0 0 10px; 
-        color:rgb(255, 238, 0);
+      margin: 0 0 12px;
+      color: #1a73e8;
+      font-size: 18px;
     }
-
     button {
-        width:100%; 
-        padding:10px; 
-        background:#0004ff; 
-        color:white;
-        border: none; 
-        border-radius: 6px; 
-        cursor:pointer;
+      width: 100%;
+      padding: 12px;
+      background: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 12px;
     }
-
     button:hover {
-        background:#ff0000;
+      background: #1557b0;
     }
-
     #status {
-        margin-top:12px; 
-        font-size:14px;
+      margin-top: 8px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #333;
     }
-    </style>
+    .quality-btn {
+      display: inline-block;
+      margin: 4px 2px;
+      padding: 8px 12px;
+      background: #ff0000;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    .quality-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  </style>
 </head>
 <body>
-    <h2>PineLoad</h2>
-    <button id="scanbtn">Procurar vídeos</button>
-    <div id="status">Clique no botão acima.</div>
-
-    <script src="popup.js"></script>
+  <h2>PineLoad v0.3.0</h2>
+  <button id="scanBtn">Analisar YouTube</button>
+  <div id="status">Clique no botão para começar.</div>
+  <script src="popup.js"></script>
 </body>
 </html>
