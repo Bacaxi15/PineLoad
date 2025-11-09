@@ -1,5 +1,3 @@
-// popup.js - PineLoad v0.3.3 (YouTube com yt-dlp + download real no PC)
-
 const btn = document.getElementById('scanBtn');
 const statusDiv = document.getElementById('status');
 
@@ -9,7 +7,6 @@ if (!btn || !statusDiv) {
   throw new Error('Elementos ausentes');
 }
 
-// Função para buscar título e qualidades
 async function getYoutubeInfo(url) {
   const res = await fetch('http://localhost:5000/api/get_qualities', {
     method: 'POST',
@@ -34,7 +31,6 @@ btn.addEventListener('click', async () => {
     const info = await getYoutubeInfo(url);
     if (info.error) throw new Error(info.error);
 
-    // Monta interface com botões de qualidade
     let html = `<strong>${info.title}</strong><br><br>`;
     info.qualities.forEach(q => {
       html += `
@@ -44,7 +40,6 @@ btn.addEventListener('click', async () => {
     });
     statusDiv.innerHTML = html;
 
-    // === DOWNLOAD COM PROGRESSO E GARANTIA ===
     info.qualities.forEach(q => {
       const downloadBtn = document.getElementById(`yt-btn-${q}`);
       downloadBtn.addEventListener('click', async () => {
@@ -85,7 +80,6 @@ btn.addEventListener('click', async () => {
           const blobUrl = URL.createObjectURL(blob);
           const filename = `${info.title}_${q}.mp4`;
 
-          // === FORÇA O DOWNLOAD NO CHROME ===
           chrome.downloads.download({
             url: blobUrl,
             filename: filename,
@@ -96,7 +90,6 @@ btn.addEventListener('click', async () => {
               downloadBtn.style.background = '#d32f2f';
               console.error('Download error:', chrome.runtime.lastError);
             } else {
-              // Monitora o status
               const check = setInterval(() => {
                 chrome.downloads.search({ id: downloadId }, (results) => {
                   if (results[0]?.state === 'complete') {
